@@ -17,3 +17,7 @@ I.e., it should be possible to write an R-independent C API and then wrap and ex
 You can use external pointers to return a pointer to a C object (on the heap) to R (see `external_pointer.c`)
 
 Use `#define R_NO_REMAP` to force clear namespacing `R_` or `Rf_` prefix.
+
+
+https://docs.python.org/3/extending/embedding.html
+https://github.com/nicholasdavies/luajr/tree/master/src/luajit

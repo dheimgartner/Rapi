@@ -31,3 +31,41 @@ x2 <- get_obj_at(x_ptr)
 x2
 unmake_obj(x_ptr)
 x3 <- get_obj_at(x_ptr)
+
+
+
+
+## R eval
+devtools::load_all()
+x <- 1
+R_eval("x")
+R_eval("__123")
+R_eval("x <- 2")
+R_eval("x")
+R_eval("2")
+
+Rexp <- "
+x <- 1
+f <- function() {
+  print(x)
+  x <<- x + 1
+}
+f()
+f()
+"
+R_eval(Rexp)
+
+
+foo <- "
+Foo <- setClass('Foo', slots = c(foo = 'character'))
+Foo
+"
+Foo <- R_eval(foo)
+foo <- Foo(foo = "foo")
+foo
+
+
+
+## embed python
+devtools::load_all()
+embed_python(2, "1")
